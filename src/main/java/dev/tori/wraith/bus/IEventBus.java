@@ -128,4 +128,17 @@ public interface IEventBus {
      * @return {@code true} if this event bus is shut down, {@code false} otherwise.
      */
     boolean isShutdown();
+
+    /**
+     * Returns this event bus's identifier. Defaults to -1.
+     * <p>
+     * Identifier uniqueness is ensured on a best-effort basis in the case of {@link AbstractEventBus}. No guarantees
+     * are made for custom implementations.
+     *
+     * @return this event bus's identifier, or -1 if not set.
+     * @since 4.2.0
+     */
+    default int getId() {
+        return -1;
+    }
 }

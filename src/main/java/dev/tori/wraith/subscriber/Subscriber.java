@@ -281,7 +281,7 @@ public class Subscriber implements ISubscriber {
     public String toString() {
         return "Subscriber{" +
                 "id=" + id +
-                ", linkedBuses=" + linkedBuses +
+                ", linkedBuses=" + linkedBuses.stream().map(IEventBus::getId).toList() +
                 ", listeners=" + listeners +
                 '}';
     }

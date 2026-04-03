@@ -25,6 +25,7 @@ import dev.tori.wraith.event.Target;
 import dev.tori.wraith.event.status.IStatusEvent;
 import dev.tori.wraith.event.status.StatusEvent;
 import dev.tori.wraith.listener.LambdaEventListener;
+import dev.tori.wraith.subscriber.Subscriber;
 import dev.tori.wraith.util.IndexedHashSet;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -88,5 +89,28 @@ class EventBusTest {
     void getListeners() {
         Assertions.assertTrue(eventBus.getListeners().isEmpty(), "The event bus should have an empty listener set initially.");
         Assertions.assertInstanceOf(IndexedHashSet.class, eventBus.getListeners(), "The event bus's listener set should be an instance of IndexedHashSet.");
+    }
+
+    /**
+     * @since 4.2.0
+     */
+    @Test
+    void toStringEmpty() {
+        Assertions.assertDoesNotThrow(() -> {
+            eventBus.toString();
+        }, "Calling toString() on an empty EventBus should not throw an exception.");
+    }
+
+    /**
+     * @since 4.2.0
+     */
+    @Test
+    void toStringNonEmpty() {
+        Subscriber subscriber = new Subscriber();
+        eventBus.subscribe(subscriber);
+
+        Assertions.assertDoesNotThrow(() -> {
+            eventBus.toString();
+        }, "Calling toString() on a non-empty EventBus should not throw an exception.");
     }
 }

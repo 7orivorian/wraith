@@ -275,6 +275,7 @@ public abstract class AbstractEventBus implements IEventBus {
     /**
      * @return the {@code id} of this event bus
      */
+    @Override
     public int getId() {
         return id;
     }
