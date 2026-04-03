@@ -28,6 +28,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * @author <a href="https://github.com/7orivorian">7orivorian</a>
+ * @since 4.0.0
+ */
 public class EventBusDispatchTest {
 
     private EventBus bus;
