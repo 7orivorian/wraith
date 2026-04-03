@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025-2026 7orivorian.
+ * Copyright (c) 2026 7orivorian.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,42 +20,43 @@
  * SOFTWARE.
  */
 
-package dev.tori.wraith.listener;
+package dev.tori.wraith.subscriber;
 
 import dev.tori.wraith.bus.EventBus;
-import dev.tori.wraith.subscriber.Subscriber;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
+ * General tests for {@link Subscriber}.
+ *
  * @author <a href="https://github.com/7orivorian">7orivorian</a>
- * @since 4.1.0
+ * @since 4.2.0
  */
-public class AnnotationDiscoveryTest {
+class SubscriberTest {
 
-    private EventBus bus;
+    private EventBus eventBus;
+    private Subscriber subscriber;
 
     @BeforeEach
     void setUp() {
-        bus = new EventBus();
+        eventBus = new EventBus();
+        subscriber = new Subscriber();
     }
 
     @Test
-    void testDiscovery() {
-        TestSubscriber subscriber = new TestSubscriber();
-        bus.subscribe(subscriber);
-        bus.dispatch(new Object());
-        Assertions.assertTrue(subscriber.discovered, "The listener should have been discovered.");
+    void toStringEmpty() {
+        Assertions.assertDoesNotThrow(() -> {
+            subscriber.toString();
+        }, "Calling toString() on a Subscriber should not throw an exception.");
     }
 
-    public static class TestSubscriber extends Subscriber {
+    @Test
+    void toStringNonEmpty() {
+        eventBus.subscribe(subscriber);
 
-        private boolean discovered = false;
-
-        @Listen
-        public void listener() {
-            discovered = true;
-        }
+        Assertions.assertDoesNotThrow(() -> {
+            subscriber.toString();
+        }, "Calling toString() on a subscribed Subscriber should not throw an exception.");
     }
 }

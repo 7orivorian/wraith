@@ -29,7 +29,7 @@ Capable, versatile, and easy to use Java event library.
 <dependency>
     <groupId>dev.7ori</groupId>
     <artifactId>wraith</artifactId>
-    <version>4.1.0</version>
+    <version>4.2.0</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Capable, versatile, and easy to use Java event library.
 
 ```groovy
 dependencies {
-    implementation 'dev.7ori:wraith:4.1.0'
+    implementation 'dev.7ori:wraith:4.2.0'
 }
 ```
 
@@ -49,7 +49,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation("dev.7ori:wraith:4.1.0")
+    implementation("dev.7ori:wraith:4.2.0")
 }
 ```
 

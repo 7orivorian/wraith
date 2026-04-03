@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2025 7orivorian.
+ * Copyright (c) 2021-2026 7orivorian.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -8,15 +8,16 @@
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
  */
 
 package dev.tori.wraith.bus;
@@ -45,7 +46,6 @@ import java.util.function.Predicate;
  * @author <a href="https://github.com/7orivorian">7orivorian</a>
  * @since 4.0.0
  */
-@SuppressWarnings({"rawtypes", "unchecked"})
 public abstract class AbstractEventBus implements IEventBus {
 
     /**
@@ -275,6 +275,7 @@ public abstract class AbstractEventBus implements IEventBus {
     /**
      * @return the {@code id} of this event bus
      */
+    @Override
     public int getId() {
         return id;
     }
@@ -291,7 +292,7 @@ public abstract class AbstractEventBus implements IEventBus {
      * @param invertPriority if {@code true}, listeners are processed in order of inverse priority; otherwise,
      *                       they are processed in normal order
      */
-    @SuppressWarnings("DuplicatedCode")
+    @SuppressWarnings({"DuplicatedCode", "rawtypes", "unchecked"})
     protected final void dispatchToEachListener(Object event, IndexedHashSet<Listener> listeners, Predicate<Listener> predicate, boolean invertPriority) {
         if ((listeners != null) && !listeners.isEmpty()) {
             if (invertPriority) {
