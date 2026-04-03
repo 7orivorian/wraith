@@ -45,7 +45,6 @@ import java.util.function.Predicate;
  * @author <a href="https://github.com/7orivorian">7orivorian</a>
  * @since 4.0.0
  */
-@SuppressWarnings({"rawtypes", "unchecked"})
 public abstract class AbstractEventBus implements IEventBus {
 
     /**
@@ -292,7 +291,7 @@ public abstract class AbstractEventBus implements IEventBus {
      * @param invertPriority if {@code true}, listeners are processed in order of inverse priority; otherwise,
      *                       they are processed in normal order
      */
-    @SuppressWarnings("DuplicatedCode")
+    @SuppressWarnings({"DuplicatedCode", "rawtypes", "unchecked"})
     protected final void dispatchToEachListener(Object event, IndexedHashSet<Listener> listeners, Predicate<Listener> predicate, boolean invertPriority) {
         if ((listeners != null) && !listeners.isEmpty()) {
             if (invertPriority) {
