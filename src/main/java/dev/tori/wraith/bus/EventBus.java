@@ -37,12 +37,12 @@ import java.util.Objects;
  * @author <a href="https://github.com/7orivorian">7orivorian</a>
  * @since 4.0.0
  */
-@SuppressWarnings({"rawtypes", "unchecked"})
 public class EventBus extends AbstractEventBus {
 
     /**
      * An {@link IndexedHashSet} of {@link Listener listeners} registered to the event bus.
      */
+    @SuppressWarnings("rawtypes")
     private final IndexedHashSet<Listener> listeners;
     /**
      * Indicates whether the listeners in the event bus are sorted.
@@ -110,6 +110,7 @@ public class EventBus extends AbstractEventBus {
             taskExecutor.onEvent(event);
 
             if (!sorted) {
+                //noinspection unchecked
                 listeners.sort(Comparator.naturalOrder());
                 sorted = true;
             }
@@ -133,6 +134,7 @@ public class EventBus extends AbstractEventBus {
      *
      * @return an {@link IndexedHashSet} containing all registered {@link Listener listeners}.
      */
+    @SuppressWarnings("rawtypes")
     public IndexedHashSet<Listener> getListeners() {
         return listeners;
     }
